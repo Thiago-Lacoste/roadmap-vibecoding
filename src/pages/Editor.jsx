@@ -146,7 +146,7 @@ export default function Editor() {
         {roadmap.mantra && (
           <div className="mantra-footer">
             <p className="mantra-jp">継続は力なり</p>
-            <p className="mantra-texto">{roadmap.mantra} — LIZUKH</p>
+            <p className="mantra-texto">{roadmap.mantra}</p>
           </div>
         )}
 
