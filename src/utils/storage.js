@@ -29,12 +29,18 @@ function normalizePhase(phase) {
   }
 }
 
+function toSafeDateIso(value) {
+  const date = new Date(value)
+  return Number.isNaN(date.getTime()) ? new Date().toISOString() : date.toISOString()
+}
+
 function normalizeRoadmap(roadmap) {
   if (!roadmap || typeof roadmap !== 'object') return null
   return {
     ...roadmap,
     title: toSafeString(roadmap.title, 'Mi Roadmap'),
     mantra: toSafeString(roadmap.mantra, ''),
+    created_at: toSafeDateIso(roadmap.created_at),
     phases: Array.isArray(roadmap.phases)
       ? roadmap.phases.map(normalizePhase).filter(Boolean)
       : []

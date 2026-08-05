@@ -111,7 +111,7 @@ export default function Editor() {
           </p>
 
           <p className="autor-line" style={{ marginTop: '12px' }}>
-            Lizukh · {new Date(roadmap.created_at).toLocaleDateString('es', { year: 'numeric', month: 'long' })}
+            {new Date(roadmap.created_at).toLocaleDateString('es', { year: 'numeric', month: 'long' })}
           </p>
 
           <div className="sello" title="Roadmap activo">
