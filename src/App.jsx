@@ -1,22 +1,33 @@
-import { useState } from 'react'
-import RoadmapForm from './components/RoadmapForm'
-import RoadmapList from './components/RoadmapList'
-import SearchBar from './components/SearchBar'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
+import { RoadmapProvider } from './context/RoadmapContext'
+import Home from './pages/Home'
+import Editor from './pages/Editor'
 
-function App() {
-  const [query, setQuery] = useState('')
-  const [editingRoadmap, setEditingRoadmap] = useState(null)
+function AndonLamp() {
+  const location = useLocation()
+  const enTopbar = location.pathname.startsWith('/editor')
 
   return (
-    <>
-      <h1>Roadmap Builder</h1>
-      <RoadmapForm
-        editingRoadmap={editingRoadmap}
-        onDoneEditing={() => setEditingRoadmap(null)}
-      />
-      <SearchBar value={query} onChange={setQuery} />
-      <RoadmapList query={query} onEdit={setEditingRoadmap} />
-    </>
+    <img
+      src="/images/andon.png"
+      alt=""
+      className={`andon-image${enTopbar ? ' andon-en-topbar' : ''}`}
+      aria-hidden="true"
+    />
+  )
+}
+
+function App() {
+  return (
+    <RoadmapProvider>
+      <BrowserRouter>
+        <AndonLamp />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/editor/:id" element={<Editor />} />
+        </Routes>
+      </BrowserRouter>
+    </RoadmapProvider>
   )
 }
 

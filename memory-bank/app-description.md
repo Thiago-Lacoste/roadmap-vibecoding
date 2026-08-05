@@ -29,3 +29,5 @@ Los usuarios pueden encontrar un roadmap específico en menos de 10 segundos usa
 
 ## Notas
 La entrada no especificaba si el roadmap debe ser compartible con otros o solo de uso individual; se asumió uso individual/privado por ser el caso más simple para validar el MVP.
+
+Archivos de ejemplo:
